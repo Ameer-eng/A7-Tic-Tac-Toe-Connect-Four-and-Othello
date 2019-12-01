@@ -4,32 +4,37 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class OthelloGame {
 
 	public static void main(String[] args) {
-		/* Create top level window. */
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				/* Create top level window. */
 
-		JFrame main_frame = new JFrame();
-		main_frame.setTitle("Othello");
-		main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				JFrame main_frame = new JFrame();
+				main_frame.setTitle("Othello");
+				main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		/* Create panel for content. Uses BorderLayout. */
-		JPanel top_panel = new JPanel();
-		top_panel.setLayout(new BorderLayout());
-		main_frame.setContentPane(top_panel);
+				/* Create panel for content. Uses BorderLayout. */
+				JPanel top_panel = new JPanel();
+				top_panel.setLayout(new BorderLayout());
+				main_frame.setContentPane(top_panel);
 
-		/*
-		 * Create OthelloWidget component and put into center of content panel.
-		 */
+				/*
+				 * Create OthelloWidget component and put into center of content
+				 * panel.
+				 */
 
-		OthelloWidget othello = new OthelloWidget();
-		top_panel.add(othello, BorderLayout.CENTER);
+				OthelloWidget othello = new OthelloWidget();
+				top_panel.add(othello, BorderLayout.CENTER);
 
-		/* Pack main frame and make visible. */
+				/* Pack main frame and make visible. */
 
-		main_frame.pack();
-		main_frame.setVisible(true);
+				main_frame.pack();
+				main_frame.setVisible(true);
+			}
+		});
 	}
-
 }
